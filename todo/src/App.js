@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
-import './App.css';
 
-import { connect } from 'react-redux';
-import { addTodo } from './actions';
-
+import { connect } from "react-redux";
+import { addTodo } from "./actions";
 
 class App extends Component {
-
-  newTodo = (e, todo) => {
-    e.preventDefault();
-    this.props.addTodo(todo);
-  }
-
   render() {
+    console.log(this.props)
     return (
       <div className="App">
-        <h1>test</h1>
+      {
+        this.props.todos.map(todo => {
+          console.log(todo)
+          return <p key={todo.value}>{todo.value}</p>
+        })
+      }
       </div>
     );
   }
 }
-const mapStateToProps = (state) => {
-  return {
-      todo: state.todo
-  };
-};
 
-export default connect(mapStateToProps, {addTodo})(App) 
+const mapStateToProps = state => {
+  console.log(state)
+  return{
+    todos: state.todos
+  }
+}
+
+export default connect(mapStateToProps, {addTodo})(App);
