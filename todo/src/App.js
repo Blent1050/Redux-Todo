@@ -4,10 +4,18 @@ import { connect } from "react-redux";
 import { addTodo } from "./actions";
 
 class App extends Component {
+  handleTodo = (e, todo) => {
+    e.preventDefault();
+    this.props.addTodo(todo);
+  }
   render() {
     console.log(this.props)
     return (
       <div className="App">
+      <form onSubmit={(e) => this.handleTodo(e, 'added')}>
+        <input  placeholder='enter todo...'></input>
+        <button type='submit'>Add todo</button>
+      </form>
       {
         this.props.todos.map(todo => {
           console.log(todo)
