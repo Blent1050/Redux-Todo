@@ -1,6 +1,7 @@
 import {
     ADD_TODO,
-    TOGGLE_FRIEND
+    TOGGLE_FRIEND,
+    DELETE_FRIEND
 } from '../actions';
 
 const initialState = {
@@ -22,6 +23,12 @@ const reducer = (state = initialState, action) => {
                     completed: !todo.completed
                 } : todo)
             }
+        case DELETE_FRIEND:
+        return{
+            ...state,
+            todos: state.todos.filter(todo => todo.id !== action.payload)
+            }
+
         default:
             return state
     }

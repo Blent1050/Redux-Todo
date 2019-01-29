@@ -30,7 +30,6 @@ class App extends Component {
 					<button type="submit">Add todo</button>
 				</form>
 				{this.props.todos.map((todo) => {
-					console.log(this.props);
 					return (
             <div className='todo'>
               <p
@@ -56,4 +55,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { addTodo, toggleFriend })(App);
+export default connect(mapStateToProps, { addTodo, toggleFriend, deleteFriend })(App);
