@@ -3,26 +3,20 @@ import {
 } from '../actions';
 
 const initialState = {
-
-    todos: [{
-            value: 'Walk the dog',
-            completed: false
-        },
-        {
-            value: 'test',
-            completed: false
-        }
-    ]
+    todos: []
 }
 
 const reducer = (state = initialState, action) => {
-    console.log('from reducer: ', action, state)
+    console.log(action.payload, state)
     switch (action.type) {
         case ADD_TODO:
-            return [
-                ...state.todos,
-                action.payload
-            ]
+            return {
+                todos: [
+                    ...state.todos,
+                   { value: action.payload}
+                ]
+
+            }
 
 
         default:
