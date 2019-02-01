@@ -1,0 +1,21 @@
+
+.App{
+  margin: 0 auto;
+  width: 50%;
+}
+
+.completed{
+  text-decoration: line-through;
+}
+
+.todo{
+  display: flex;
+  align-items: center;
+}
+.todo p{
+  margin-right: 25px;
+}
+.todo button{
+  height: 25px;
+  width: 100px;
+}
